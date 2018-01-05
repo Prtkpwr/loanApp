@@ -20,8 +20,6 @@ var sampleApp = require('./models/appModel.js');
 
 var appModel = mongoose.model('sampleApp');
 
-/////////////////////middleWare//////////////////
-var middleWare = require('./middleware.js');
 
 //GET to first page
 app.get('/',function(req,res){
@@ -69,8 +67,8 @@ app.post('/loan/bulk_creation',function(req,res){
 		}
 	});
 });
-
-app.get('/blogs/:id', function (req, res) {
+//to display loan by ID
+app.get('/loan/:id', function (req, res) {
     appModel.findOne({
         '_id': req.params.id
     }, function (err, result) {

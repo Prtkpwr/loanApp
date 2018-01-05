@@ -8,9 +8,9 @@ var Schema = mongoose.Schema;
 
 var appSchema = new Schema ({
 
-	loan_amount : {type:String, required:true},
-	loan_tenure : {type:String, required:true},
-	per_month_interest : {type: String, required:true}
+	loan_amount : {type:Number, required:true},
+	loan_tenure : {type:Number, required:true},
+	per_month_interest : {type: Number, required:true}
 
 },{timestamp:true});
 

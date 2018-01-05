@@ -20,12 +20,16 @@ var sampleApp = require('./models/appModel.js');
 
 var appModel = mongoose.model('sampleApp');
 
+/////////////////////middleWare//////////////////
+var middleWare = require('./middleware.js');
+
 //GET to first page
 app.get('/',function(req,res){
 	res.send("Welcome to loan API!")
 });
 
 //GET all data
+
 app.get('/loans',function(req,res){
 
 	appModel.find(function(err,result){
@@ -47,7 +51,15 @@ app.post('/loan/bulk_creation',function(req,res){
 	loan_tenure : req.body.loan_tenure,
 	per_month_interest : req.body.per_month_interest
 	});
-
+    
+    var repayment_profile = {
+        payment : req.body.payment,
+        total : req.body.total,
+        totalinterest : req.body.totalinterest
+        
+    };
+    newData.repayment_profile = repayment_profile;
+    
 	newData.save(function(err,result){
 		if(err){
 			res.send(err);
@@ -57,6 +69,19 @@ app.post('/loan/bulk_creation',function(req,res){
 		}
 	});
 });
+
+app.get('/blogs/:id', function (req, res) {
+    appModel.findOne({
+        '_id': req.params.id
+    }, function (err, result) {
+        if (err) {
+            console.log("some Error");
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    }); //end user model find
+}); // end route to get a particular blog
 
 
 app.listen(3000,function(){

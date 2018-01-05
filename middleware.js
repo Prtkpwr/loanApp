@@ -1,8 +1,8 @@
-function calculate() {
+exports.calculate= function(req, res, next) {
     
-    var principal = loan_amount;
-    var interest = per_month_interest;
-    var payments = loan_tenure;
+    var principal = req.body.loan_amount;
+    var interest = req.body.per_month_interest;
+    var payments = req.body.loan_tenure;
 
     // Now compute the monthly payment figure, using esoteric math.
     var x = Math.pow(1 + interest, payments);

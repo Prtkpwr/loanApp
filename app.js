@@ -20,15 +20,22 @@ var sampleApp = require('./models/appModel.js');
 
 var appModel = mongoose.model('sampleApp');
 
+//for CORS browser support
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 //GET to first page
-app.get('/',function(req,res){
+app.get('/',function(req,res,next){
 	res.send("Welcome to loan API!")
 });
 
 //GET all data
 
-app.get('/loans',function(req,res){
+app.get('/loans',function(req,res,next){
 
 	appModel.find(function(err,result){
 		if(err){
@@ -41,7 +48,7 @@ app.get('/loans',function(req,res){
 });
 
 //POST data to loan database
-app.post('/loan/bulk_creation',function(req,res){
+app.post('/loan/bulk_creation',function(req,res,next){
 
 	var newData = new appModel({
 
@@ -68,7 +75,7 @@ app.post('/loan/bulk_creation',function(req,res){
 	});
 });
 //to display loan by ID
-app.get('/loan/:id', function (req, res) {
+app.get('/loan/:id', function (req, res,next) {
     appModel.findOne({
         '_id': req.params.id
     }, function (err, result) {
@@ -81,7 +88,7 @@ app.get('/loan/:id', function (req, res) {
     }); //end user model find
 }); // end route to get a particular loan entry
 
-app.put('/loan/edit/:Id', function(req, res) {
+app.put('/loan/edit/:Id', function(req, res,next) {
 
     var update = req.body;
 

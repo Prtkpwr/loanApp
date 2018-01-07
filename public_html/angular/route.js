@@ -1,4 +1,4 @@
-myApp.config(["$routeProvider",function($routeProvider){
+/*myApp.config(["$routeProvider",function($routeProvider){
             $routeProvider
             .when("/",{
               templateUrl : "main.html",
@@ -18,4 +18,4 @@ myApp.config(["$routeProvider",function($routeProvider){
                           
                  }
                );
-          }]);
+          }]);*/

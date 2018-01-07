@@ -2,7 +2,9 @@ myApp.controller("mainController",["$http","cService","$routeParams",function($h
 	
 	var main = this;
 
-	this.loanData;
+	//this.loanData = [];
+	this.data;
+	
 
 	
 	
@@ -12,13 +14,15 @@ myApp.controller("mainController",["$http","cService","$routeParams",function($h
 		cService.loanApi()
 		.then(function successCallback(response){
 	
-		main.loanData.push(response.data);
-		console.log(this.loanData);
+		main.data = response.data;
+		//main.loanData.push(response.data);
+
+		//console.log(main.string);
 
 
 
 		},function errorCallback(reason){
-			alert(reason);
+			alert("Problem in Get");
 		})
 	};
 

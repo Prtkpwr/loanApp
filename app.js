@@ -79,8 +79,51 @@ app.get('/loan/:id', function (req, res) {
             res.send(result);
         }
     }); //end user model find
-}); // end route to get a particular blog
+}); // end route to get a particular loan entry
 
+app.put('/loan/edit/:Id', function(req, res) {
+
+    var update = req.body;
+
+    //Find one loan entry and update it.
+
+    appModel.findOneAndUpdate({
+        "_id": req.params.Id
+    }, update, function(err, result) {
+
+        if (err) {
+            res.send(err);
+        } else {
+            console.log(result);
+            res.send(result);
+        }
+
+    }); // findOneAndUpdate ends
+
+}); //PUT request ends
+
+// POST request to Delete a loan entry
+
+app.post('/loan/delete/:Id', function(req, res) {
+
+
+
+    appModel.remove({
+        _id: req.params.Id
+    }, function(err, result) {
+
+
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                Info: "Loan Entry Deleted! "
+            });
+        }
+
+    }); //  remove blog ends
+
+}); //POST request  end
 
 app.listen(3000,function(){
 	console.log("Example app listening on port 3000!")

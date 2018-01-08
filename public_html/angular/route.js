@@ -1,13 +1,13 @@
-/*myApp.config(["$routeProvider",function($routeProvider){
+myApp.config(["$routeProvider",function($routeProvider){
             $routeProvider
             .when("/",{
-              templateUrl : "main.html",
+              templateUrl : "views/1st.html",
               controller: "mainController",
               controllerAs : "mainCtrl"
             })
     .when("/loan/:id",{
-              templateUrl : "views/loan-detail.html",
-              controller : "controller",
+              templateUrl : "views/view.html",
+              controller : "mainController",
               controllerAs : "mainCtrl"
             })
 
@@ -18,4 +18,4 @@
                           
                  }
                );
-          }]);*/
+          }]);

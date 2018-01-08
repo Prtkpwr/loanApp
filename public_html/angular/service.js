@@ -13,7 +13,5 @@ myApp.service("cService",function($http){
 
 		return $http.get(baseUrl);
 	}
-	
-
 
 });

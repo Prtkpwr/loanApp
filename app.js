@@ -70,7 +70,7 @@ app.post('/loan/bulk_creation',function(req,res,next){
 			res.send(err);
 		}
 		else{
-			res.send(result);
+			res.send("Data Added Successfully");
 		}
 	});
 });

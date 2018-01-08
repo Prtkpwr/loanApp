@@ -1,0 +1,29 @@
+
+<br/><br/><br/><br/><br/>
+<div class="container-fluid">
+   <div style="color: dimgrey;">
+      <div class="row">
+      	<h2 class="text-center">Enter Data to Add into Datbase</h2>
+         <div class="col-xs-12 text-center">
+<form enctype='application/json' action="http://localhost:3000/loan/bulk_creation" method="post">
+  Loan Amount : <br>
+  <input type="text" name="loan_amount">
+  <br>
+  Loan Tenure : <br>
+  <input type="text" name="loan_tenure">
+  <br>
+  Interest Per Month : <br>
+  <input type="text" name="per_month_interest">
+  <br>
+  <input type="submit" value="Submit">
+  <br><br>
+</form>
+<br><br><br>
+<a ng-href="#/loans" class="btn btn-default btn-custom" style="display: inline-block;">Click to see all data from database</a>
+</div>
+      </div>
+   </div>
+</div>
+
+
+
